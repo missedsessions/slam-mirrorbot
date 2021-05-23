@@ -152,9 +152,9 @@ class MirrorListener(listeners.MirrorListeners):
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, link)).text
-                buttons.buildbutton("☁️Drive Link☁️", surl)
+                buttons.buildbutton("🔅Google Drive Link🔅", surl)
             else:
-                buttons.buildbutton("☁️Drive Link☁️", link)
+                buttons.buildbutton("🔅Google Drive Link🔅", link)
             LOGGER.info(f'Done Uploading {download_dict[self.uid].name()}')
             if INDEX_URL is not None:
                 url_path = requests.utils.quote(f'{download_dict[self.uid].name()}')
@@ -163,9 +163,9 @@ class MirrorListener(listeners.MirrorListeners):
                     share_url += '/'
                 if SHORTENER is not None and SHORTENER_API is not None:
                     siurl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, share_url)).text
-                    buttons.buildbutton("⚡Index Link⚡", siurl)
+                    buttons.buildbutton("🔅Index Link🔅", siurl)
                 else:
-                    buttons.buildbutton("⚡Index Link⚡", share_url)
+                    buttons.buildbutton("🔅Index Link🔅", share_url)
             if BUTTON_THREE_NAME is not None and BUTTON_THREE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_THREE_NAME}", f"{BUTTON_THREE_URL}")
             if BUTTON_FOUR_NAME is not None and BUTTON_FOUR_URL is not None:
@@ -177,7 +177,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\ncc: {uname}'
+                msg += f'\n\ncc: Credit Goes To 🔅MissedSessions🔅'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
